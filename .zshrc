@@ -11,13 +11,14 @@
 # to be manually installed:
 #
 # zsh-autosuggestions; zsh-syntax-highlighting,
-# tmux, figlet
+# tmux, figlet, bat
 #--------------------------------------------------
 
 # Export environmental variables
 
 export PATH=$HOME/bin:~/.local/bin:/usr/local/bin:$PATH
-export ZSH="/home/rpanades/.oh-my-zsh"
+export ZSH="/home/loren/.oh-my-zsh"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Theme from oh-my-zsh
 
@@ -49,6 +50,7 @@ export MOPAC_LICENSE='/home/rpanades/bin/MOPACMINE'
 # Functions
 
 isrun() { ps -A | grep $1;}
+
 tpy() {
     # Create Bash, Python and Emacs session
     tmux new-session -d 'emacs -nw'$1
@@ -65,6 +67,8 @@ alias sssara="ssh -Y panades@doornode.surfsara.nl"
 alias ccpgate="ssh -Y panades@ccpgate.tnw.utwente.nl"
 alias tau="ssh -Y rapa157d@taurus.hrsk.tu-dresden.de"
 alias tume="ssh -Y rbarrueta@cpch06.chm.tu-dresden.de"
+alias lsts0="ssh -Y rbarrueta@141.30.9.190"
+alias lsts1="ssh -Y rbarrueta@141.30.9.191"
 alias tukup="sftp rbarrueta@cpch06.chm.tu-dresden.de"
 alias sakup="sftp ramon@sakura.univ-lille1.fr"
 alias toul="ssh panades@lpqsv11.ups-tlse.fr"
@@ -74,6 +78,7 @@ alias toul="ssh panades@lpqsv11.ups-tlse.fr"
 alias e='emacsclient'
 alias v="nvim"
 alias n='neovide --maximized'
+alias r="ranger"
 alias sbl="subl"
 alias sb="source ~/.bashrc"
 alias sz="source ~/.zshrc"
@@ -104,4 +109,4 @@ alias starwars="telnet towel.blinkenlights.nl"
 
 # Give me a nice and warm welcome
 
-figlet -t "$(hostname)"
+figlet -t "$(hostname)" | lolcat
